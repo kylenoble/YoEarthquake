@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
-
+gem 'whenever', :require => false
 group :development, :test do
   gem 'rspec-rails'
 end
