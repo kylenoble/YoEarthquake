@@ -1,4 +1,6 @@
 require 'clockwork'
+require 'config/boot'
+require 'config/environment'
 module Clockwork
   handler do |job|
     puts "Running #{job}"
@@ -9,6 +11,6 @@ module Clockwork
   #   puts "Running #{job}, at #{time}"
   # end
 
-  every(65.seconds, 'rake earthquakes') {rake "earthquake_yo:run"}
+  every(65.seconds, 'run earthquakes') {"earthquake_yo:run"}
 
 end
