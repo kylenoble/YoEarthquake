@@ -17,5 +17,8 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: app-production
+  host: ec2-107-21-100-118.compute-1.amazonaws.com
+  database: d77ud6hmsrikn5
+  username: hohygpzxnklwxd
+  password: y5XgKqoMH7GZ-7j7YcGDh4yark
   pool: 5

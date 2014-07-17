@@ -8,10 +8,9 @@ class EarthquakeApi
 	API_ENDPOINT = "http://api.justyo.co/yoall/"
 
 	def self.run 
-		url = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_day.geojson"
+		url = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_hour.geojson"
 
 		if self.should_get_earthquakes?(url)
-			puts "yo ran"
 			self.get_earthquakes
 		end
 	end
@@ -35,7 +34,6 @@ class EarthquakeApi
 			return false
 		else 
 			@@earthquake_count = earthquakes['metadata']['count']
-			puts "count ran"
 		end
 		
 		i = @@earthquake_count - 1
@@ -44,22 +42,17 @@ class EarthquakeApi
 			time = earthquake_time = earthquakes['features'][i]['properties']["time"]
 			if Earthquake.find_by(time: time).nil?
 				Earthquake.create!(time: time)
-				puts "earthquake found"
 				return true
 			end
 			i -= 1
 		end
 
-		puts "none found"
 		return false
 	end
 
 	def self.get_earthquakes
 		uri = URI(API_ENDPOINT)
-		puts uri
-		puts API_TOKEN
 		Net::HTTP.post_form(uri, "api_token" => API_TOKEN)
-		puts 'completed'
 	end
 
 end
