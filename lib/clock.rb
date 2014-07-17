@@ -1,4 +1,5 @@
 require 'clockwork'
+require 'rake'
 require File.expand_path('../../config/boot',        __FILE__)
 require File.expand_path('../../config/environment', __FILE__)
 module Clockwork
@@ -11,7 +12,6 @@ module Clockwork
   #   puts "Running #{job}, at #{time}"
   # end
   def execute_rake(file,task)
-	require 'rake'
 	rake = Rake::Application.new
 	Rake.application = rake
 	Rake::Task.define_task(:environment)
