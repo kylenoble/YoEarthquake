@@ -10,9 +10,17 @@ module Clockwork
   # handler do |job, time|
   #   puts "Running #{job}, at #{time}"
   # end
+  def execute_rake(file,task)
+	require 'rake'
+	rake = Rake::Application.new
+	Rake.application = rake
+	Rake::Task.define_task(:environment)
+	load "#{Rails.root}/lib/tasks/#{file}"
+	rake[task].invoke
+  end
 
   every(65.seconds, 'run earthquakes') do
-  	rake "earthquake_yo:run"
+  	execute_rake("earthquake_yo.rake","rake earthquake_yo:run")
   	puts "item run"
   end
 end
