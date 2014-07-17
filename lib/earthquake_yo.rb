@@ -8,7 +8,7 @@ class EarthquakeApi
 	API_ENDPOINT = "http://api.justyo.co/yoall/"
 
 	def self.run 
-		url = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_hour.geojson"
+		url = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_day.geojson"
 
 		if self.should_get_earthquakes?(url)
 			self.get_earthquakes
