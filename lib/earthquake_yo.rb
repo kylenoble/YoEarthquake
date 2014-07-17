@@ -31,9 +31,11 @@ class EarthquakeApi
 
 		if earthquakes['metadata']['count'] == 0
 			@@earthquake_count = 0
+			puts "count is 0"
 			return false
 		else 
 			@@earthquake_count = earthquakes['metadata']['count']
+			puts "earthquake count is #{@@earthquake_count}"
 		end
 		
 		i = @@earthquake_count - 1
@@ -42,11 +44,12 @@ class EarthquakeApi
 			time = earthquake_time = earthquakes['features'][i]['properties']["time"]
 			if Earthquake.find_by(time: time).nil?
 				Earthquake.create!(time: time)
+				puts "earthquake found"
 				return true
 			end
 			i -= 1
 		end
-
+		puts "none found"
 		return false
 	end
 
