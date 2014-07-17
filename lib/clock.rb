@@ -11,6 +11,8 @@ module Clockwork
   #   puts "Running #{job}, at #{time}"
   # end
 
-  every(65.seconds, 'run earthquakes') {"earthquake_yo:run"}
-  puts "item run"
+  every(65.seconds, 'run earthquakes') do
+  	rake "earthquake_yo:run"
+  	puts "item run"
+  end
 end
