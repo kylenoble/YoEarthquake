@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Yo Earthquake</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+	<title>Yo Earthquake</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
-		<%= yield %>
+	<%= yield %>
 
 </body>
 <script type="text/javascript">
@@ -32,64 +32,64 @@
 <script src="/assets/uiMorphingButton_fixed.js"></script>
 <script>
 	(function() {	
-				var docElem = window.document.documentElement, didScroll, scrollPosition;
+		var docElem = window.document.documentElement, didScroll, scrollPosition;
 
-				// trick to prevent scrolling when opening/closing button
-				function noScrollFn() {
-					window.scrollTo( scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0 );
-				}
+		// trick to prevent scrolling when opening/closing button
+		function noScrollFn() {
+			window.scrollTo( scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0 );
+		}
 
-				function noScroll() {
-					window.removeEventListener( 'scroll', scrollHandler );
-					window.addEventListener( 'scroll', noScrollFn );
-				}
+		function noScroll() {
+			window.removeEventListener( 'scroll', scrollHandler );
+			window.addEventListener( 'scroll', noScrollFn );
+		}
 
-				function scrollFn() {
-					window.addEventListener( 'scroll', scrollHandler );
-				}
+		function scrollFn() {
+			window.addEventListener( 'scroll', scrollHandler );
+		}
 
-				function canScroll() {
-					window.removeEventListener( 'scroll', noScrollFn );
-					scrollFn();
-				}
+		function canScroll() {
+			window.removeEventListener( 'scroll', noScrollFn );
+			scrollFn();
+		}
 
-				function scrollHandler() {
-					if( !didScroll ) {
-						didScroll = true;
-						setTimeout( function() { scrollPage(); }, 60 );
-					}
-				};
+		function scrollHandler() {
+			if( !didScroll ) {
+				didScroll = true;
+				setTimeout( function() { scrollPage(); }, 60 );
+			}
+		};
 
-				function scrollPage() {
-					scrollPosition = { x : window.pageXOffset || docElem.scrollLeft, y : window.pageYOffset || docElem.scrollTop };
-					didScroll = false;
-				};
+		function scrollPage() {
+			scrollPosition = { x : window.pageXOffset || docElem.scrollLeft, y : window.pageYOffset || docElem.scrollTop };
+			didScroll = false;
+		};
 
-				scrollFn();
+		scrollFn();
 
-				var UIBtnn = new UIMorphingButton( document.querySelector( '.morph-button' ), {
-					closeEl : '.icon-close',
-					onBeforeOpen : function() {
-						// don't allow to scroll
-						noScroll();
-					},
-					onAfterOpen : function() {
-						// can scroll again
-						canScroll();
-					},
-					onBeforeClose : function() {
-						// don't allow to scroll
-						noScroll();
-					},
-					onAfterClose : function() {
-						// can scroll again
-						canScroll();
-					}
-				} );
+		var UIBtnn = new UIMorphingButton( document.querySelector( '.morph-button' ), {
+			closeEl : '.icon-close',
+			onBeforeOpen : function() {
+				// don't allow to scroll
+				noScroll();
+			},
+			onAfterOpen : function() {
+				// can scroll again
+				canScroll();
+			},
+			onBeforeClose : function() {
+				// don't allow to scroll
+				noScroll();
+			},
+			onAfterClose : function() {
+				// can scroll again
+				canScroll();
+			}
+		} );
 
-				document.getElementById( 'terms' ).addEventListener( 'change', function() {
-					UIBtnn.toggle();
-				} );
-			})();
-		</script>
+		document.getElementById( 'terms' ).addEventListener( 'change', function() {
+			UIBtnn.toggle();
+			} );
+	})();
+</script>
 </html>
