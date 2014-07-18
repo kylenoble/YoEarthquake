@@ -31,31 +31,27 @@ class EarthquakeApi
 
 		if earthquakes['metadata']['count'] == 0
 			@@earthquake_count = 0
-			puts "count is 0"
 			return false
 		else 
 			@@earthquake_count = earthquakes['metadata']['count']
-			puts "earthquake count is #{@@earthquake_count}"
 		end
 		
 		i = @@earthquake_count - 1
-		
+	
 		while i >= 0
 			time = earthquake_time = earthquakes['features'][i]['properties']["time"]
-			if Earthquake.find_by(time: time).nil?
+			if Earthquake.find_by(time: time).nil? #Tests if earthquake exists in the DB
 				Earthquake.create!(time: time)
-				puts "earthquake found"
 				return true
 			end
 			i -= 1
 		end
-		puts "none found"
 		return false
 	end
 
 	def self.get_earthquakes
 		uri = URI(API_ENDPOINT)
-		Net::HTTP.post_form(uri, "api_token" => API_TOKEN)
+		Net::HTTP.post_form(uri, "api_token" => API_TOKEN) #calls Yo Api
 	end
 
 end
