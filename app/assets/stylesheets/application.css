@@ -769,4 +769,8 @@ section {
         top: 5px;
         right: 5px;
     }
+
+    #fittext1, #fittext2{
+        text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.9);
+    }
 }
