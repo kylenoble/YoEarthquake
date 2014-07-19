@@ -9,6 +9,7 @@
 }
 
 #loader {
+    margin-top: 25%;
     z-index: 10000;
     background-repeat:no-repeat;
     /* custom background-position */
