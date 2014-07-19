@@ -87,6 +87,9 @@ section {
 }
 
 /* Morph Button: Default Styles */
+button, .yo-info {
+    display: none;
+}
 
 .morph-button {
     position: relative;
@@ -94,6 +97,7 @@ section {
     margin: 0 auto;
 
 }
+
 
 .morph-button > button {
     position: relative;
