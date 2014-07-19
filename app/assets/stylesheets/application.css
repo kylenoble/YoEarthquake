@@ -25,6 +25,7 @@
     background-position:50% 50%;
     /* ie8- graceful degradation */
     background-position:50% 50%\9 !important;
+    display: none;
 }
 
 /* fullscreen setup */
@@ -755,7 +756,7 @@ section {
     background: #aaa;
 }
 
-.wrapper {
+.content-a, button {
     display: hidden;
 }
 
