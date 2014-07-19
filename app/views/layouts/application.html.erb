@@ -7,18 +7,10 @@
 	<%= csrf_meta_tags %>
 	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 	<script type="text/javascript">
-	$body = $("body");
-
 	$(document).ready(
      	function() { 
-	     	$(".fullscreen").css({"background-image":'url(img/spinner.gif")'});
-			var img = new Image();
-			$(img).load(function() {
-			$(".fullscreen").css({"background-image":'url('+ '"' + img.src +'"' + ')'});
-			$('.yo-info').show();
-			$('button').show();  
-		});
-			img.src = "/assets/mountains.JPG"; 
+     		$body.removeClass("loading");  
+	     	$(".modal").css({"background-image":'url("http://i.stack.imgur.com/FhHRx.gif")'});
 		}
 	);
 	</script>
@@ -47,6 +39,13 @@
 <script src="/assets/classie.js"></script>
 <script src="/assets/uiMorphingButton_fixed.js"></script>
 <script>
+	var img = new Image();
+	$(img).load(function() {
+		$(".fullscreen").css({"background-image":'url('+ '"' + img.src +'"' + ')'});
+		$('.yo-info').show();
+		$('button').show();  
+	});
+	img.src = "/assets/mountains.JPG"; 
 	(function() {	
 		var docElem = window.document.documentElement, didScroll, scrollPosition;
 
