@@ -6,6 +6,14 @@
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
 	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+	<script type="text/javascript">
+	$(".fullscreen").css({"background-image":'url(img/spinner.gif")'});
+	var img = new Image();
+	$(img).load(function() {
+		$(".fullscreen").css({"background-image":'url('+ '"' + img.src +'"' + ')'});
+	});
+	img.src = "/assets/mountains.JPG";
+	</script>
 </head>
 <body>
 
