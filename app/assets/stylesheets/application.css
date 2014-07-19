@@ -15,7 +15,7 @@ html, body {
 
 body:after{
     display:none;
-    content: url('/assets/mountains.JPG');
+    content: url(/assets/mountains.JPG);
 }
 
 .fullscreen
