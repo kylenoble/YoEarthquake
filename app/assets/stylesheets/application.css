@@ -757,7 +757,7 @@ section {
 }
 
 .content-a, button {
-    display: hidden;
+    display: none;
 }
 
 @media screen and (max-width: 770px) {
