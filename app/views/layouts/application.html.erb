@@ -12,6 +12,9 @@
 		$(".background").show();
 		$(".content-a").show();
 		$("button").show();
+		$("#fittext1").fitText(1.4, { minFontSize: '50px', maxFontSize: '80px' });
+		$("#fittext2").fitText(1.4, { minFontSize: '25px', maxFontSize: '40px' });
+		$("#fittext3").fitText(1.6, { minFontSize: '35px', maxFontSize: '60px' });
 	});
 	</script>
 </head>
@@ -26,9 +29,6 @@
 	$(window).resize(backgroundResize);
 	$(window).focus(backgroundResize);
 	backgroundResize();
-	$("#fittext1").fitText(1.4, { minFontSize: '50px', maxFontSize: '80px' });
-	$("#fittext2").fitText(1.4, { minFontSize: '25px', maxFontSize: '40px' });
-	$("#fittext3").fitText(1.6, { minFontSize: '35px', maxFontSize: '60px' });
 	$(".content-style-text").find("a").on("mouseenter", function() {
 		$(this).css({"font-size": "1.2em"});
 	});
