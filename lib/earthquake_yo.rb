@@ -6,13 +6,12 @@ class EarthquakeApi
 
 	API_TOKEN = ENV["YO_API_TOKEN"]
 	API_ENDPOINT = "http://api.justyo.co/yoall/"
-	API_LINK = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_hour.geojson"
 
 	def self.run 
 		url = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_hour.geojson"
 
 		if self.should_get_earthquakes?(url)
-			self.get_earthquakes
+			self.get_earthquakes(url)
 		end
 	end
 
@@ -50,9 +49,9 @@ class EarthquakeApi
 		return false
 	end
 
-	def self.get_earthquakes
+	def self.get_earthquakes(url)
 		uri = URI(API_ENDPOINT)
-		Net::HTTP.post_form(uri, "api_token" => API_TOKEN, "link" => API_LINK) #calls Yo Api
+		Net::HTTP.post_form(uri, "api_token" => API_TOKEN, "link" => url) #calls Yo Api
 	end
 
 end
