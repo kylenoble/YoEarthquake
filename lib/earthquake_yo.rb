@@ -40,8 +40,9 @@ class EarthquakeApi
 		i = @@earthquake_count - 1
 	
 		while i >= 0
-			time = earthquake_time = earthquakes['features'][i]['properties']["time"]
-			if Earthquake.find_by(time: time).nil? #Tests if earthquake exists in the DB
+			time = earthquakes['features'][i]['properties']["time"]
+			mag = earthquakes['features'][i]['properties']["mag"].to_f
+			if Earthquake.find_by(time: time).nil? && mag >= 6.0 #Tests if earthquake exists in the DB and if quake is larger than 6.0
 				Earthquake.create!(time: time)
 				return true
 			end
