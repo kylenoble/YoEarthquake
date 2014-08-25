@@ -6,7 +6,11 @@ class EarthquakeApi
 
 	API_TOKEN = ENV["YO_API_TOKEN"]
 	API_ENDPOINT = "http://api.justyo.co/yoall/"
+<<<<<<< HEAD
 	API_URL = "http://goo.gl/77Fua4"
+=======
+	API_LINK = "http://goo.gl/77Fua4"
+>>>>>>> 3182c477454cfcdedb38b2df7c6353deda51a4e5
 
 	def self.run 
 		url = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_hour.geojson"
